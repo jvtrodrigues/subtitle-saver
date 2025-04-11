@@ -18,14 +18,23 @@ function sendSubtitle() {
     }
 }
 
+function showSubtitle() {
+    document.getElementById('subtitleTrackPicker-5').click();
+}
+
+function hideSubtitle() {
+    document.getElementById('subtitleTrackPicker-off').click();
+}
+
 function toggleSubtitle() {
     const isSubtitleVisible = document.querySelector('.hive-subtitle-renderer-cue-window');
 
-    if (!!isSubtitleVisible) document.getElementById('subtitleTrackPicker-off').click();
-    else document.getElementById('subtitleTrackPicker-5').click();
+    if (isSubtitleVisible) hideSubtitle();
+    else showSubtitle();
 }
 
 function rewind5Seconds() {
+    showSubtitle();
     document.querySelectorAll('video').forEach(v => v.currentTime -= 5);
 }
 
