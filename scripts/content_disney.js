@@ -13,6 +13,7 @@ function sendSubtitle() {
         chrome.storage.local.get({ subtitles: [] }, (data) => {
             const updated = data.subtitles.concat({ text: subtitle, createdAt: Date.now() });
             chrome.storage.local.set({ subtitles: updated });
+            chrome.runtime.sendMessage({ action: "update_badge" });
         });
     }
 }
