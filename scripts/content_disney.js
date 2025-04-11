@@ -17,6 +17,19 @@ function sendSubtitle() {
     }
 }
 
+function toggleSubtitle() {
+    const isSubtitleVisible = document.querySelector('.hive-subtitle-renderer-cue-window');
+
+    if (!!isSubtitleVisible) document.getElementById('subtitleTrackPicker-off').click();
+    else document.getElementById('subtitleTrackPicker-5').click();
+}
+
+function rewind5Seconds() {
+    document.querySelectorAll('video').forEach(v => v.currentTime -= 5);
+}
+
 chrome.runtime.onMessage.addListener((req) => {
     if (req.action === "save_subtitle") sendSubtitle();
+    if (req.action === "toggle_subtitle") toggleSubtitle();
+    if (req.action === "rewind_5_Seconds") rewind5Seconds();
 });

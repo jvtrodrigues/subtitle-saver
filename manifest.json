@@ -30,9 +30,21 @@
   "commands": {
     "save_subtitle": {
       "suggested_key": {
-        "default": "Ctrl+Q"
+        "default": "Alt+C"
       },
       "description": "Save current subtitle"
+    },
+    "toggle_subtitle": {
+      "suggested_key": {
+        "default": "Alt+X"
+      },
+      "description": "Toggle on/off subtitles"
+    },
+    "rewind_5_Seconds": {
+      "suggested_key": {
+        "default": "Alt+Q"
+      },
+      "description": "Back 5 seconds"
     }
   }
 }
