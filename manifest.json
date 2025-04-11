@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "name": "Subtitle Saver",
+  "version": "1.0",
+  "description": "Save subtitles from Disney+ and YouTube.",
+  "permissions": ["activeTab", "storage", "tabs"],
+  "background": {
+    "scripts": ["scripts/background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["scripts/content_youtube.js"]
+    },
+    {
+      "matches": ["https://www.disneyplus.com/*"],
+      "js": ["scripts/content_disney.js"]
+    }
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Subtitle Saver"
+  },
+  "commands": {
+    "save_subtitle": {
+      "suggested_key": {
+        "default": "Ctrl+Q"
+      },
+      "description": "Save current subtitle"
+    }
+  }
+}
