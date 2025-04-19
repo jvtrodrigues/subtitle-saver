@@ -20,9 +20,12 @@ function renderList(subtitles) {
       chrome.storage.local.set({ subtitles }, () => renderList(subtitles));
     };
 
+    const div2 = document.createElement("div");
+
     div.appendChild(span);
-    div.appendChild(copy);
-    div.appendChild(del);
+    div.appendChild(div2);
+    div2.appendChild(copy);
+    div2.appendChild(del);
     list.appendChild(div);
   });
 }
@@ -44,6 +47,13 @@ document.getElementById("sort-old").onclick = () => {
     renderList(sorted);
   });
 };
+
+document.getElementById("copy-all").addEventListener("click", () => {
+  chrome.storage.local.get({ subtitles: [] }, (data) => {
+    const allText = data.subtitles.map(s => s.text).join("\n\n");
+    navigator.clipboard.writeText(allText);
+  });
+});
 
 chrome.storage.local.get({ subtitles: [] }, (data) => {
   renderList(data.subtitles);

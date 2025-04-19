@@ -16,6 +16,10 @@
     {
       "matches": ["https://www.disneyplus.com/*"],
       "js": ["scripts/content_disney.js"]
+    },
+    {
+      "matches": ["https://play.max.com/*"],
+      "js": ["scripts/content_max.js"]
     }
   ],
   "browser_action": {

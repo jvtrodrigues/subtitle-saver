@@ -18,12 +18,12 @@ function sendSubtitle() {
     }
 }
 
-function showSubtitle() {
-    document.getElementById('subtitleTrackPicker-5').click();
+function showSubtitle() {    
+    Object.entries(document.getElementsByTagName('label')).find(ent => ent.find(e => e.innerHTML === "English [CC]")).find(ent => ent.tagName === "LABEL").click();
 }
 
 function hideSubtitle() {
-    document.getElementById('subtitleTrackPicker-off').click();
+    Object.entries(document.getElementsByTagName('label')).find(ent => ent.find(e => e.innerHTML === "Off")).find(ent => ent.tagName === "LABEL").click();
 }
 
 function toggleSubtitle() {
